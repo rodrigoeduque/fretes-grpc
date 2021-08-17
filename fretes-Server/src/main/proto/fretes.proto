@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "br.com.rodrigoeduque";
+option java_outer_classname = "Fretes";
+
+package br.com.rodrigoeduque;
+
+service FretesService {
+  rpc calculaFrete (CalcularFretesRequest) returns (CalcularFretesResponse) {}
+}
+
+message ErrorDetails{
+  int32 code = 1;
+  string message = 2;
+}
+
+message CalcularFretesRequest {
+  string cep = 1;
+}
+
+message CalcularFretesResponse {
+  double valor = 1;
+  string cep = 2;
+}
